@@ -4,32 +4,30 @@ public class PalindromeCheckerApp {
 
         String input = "level";
 
-        PalindromeStrategy strategy = new StackStrategy();
-        boolean result = strategy.check(input);
+        long startTime = System.nanoTime();
+
+        boolean result = checkPalindrome(input);
+
+        long endTime = System.nanoTime();
+
+        long executionTime = endTime - startTime;
 
         System.out.println("Input : " + input);
-        System.out.println("Is Palindrome? " + result);
+        System.out.println("Is Palindrome? : " + result);
+        System.out.println("Execution Time : " + executionTime + " ns");
     }
-}
 
-interface PalindromeStrategy {
-    boolean check(String input);
-}
+    private static boolean checkPalindrome(String input) {
 
-class StackStrategy implements PalindromeStrategy {
+        int start = 0;
+        int end = input.length() - 1;
 
-    public boolean check(String input) {
-
-        java.util.Stack<Character> stack = new java.util.Stack<>();
-
-        for (char c : input.toCharArray()) {
-            stack.push(c);
-        }
-
-        for (char c : input.toCharArray()) {
-            if (c != stack.pop()) {
+        while (start < end) {
+            if (input.charAt(start) != input.charAt(end)) {
                 return false;
             }
+            start++;
+            end--;
         }
 
         return true;
