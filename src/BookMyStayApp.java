@@ -1,11 +1,3 @@
-/**
- * Hotel Booking Management System
- * Use Case 1: Application Entry & Welcome Message
- *
- * @author Vimal Raj
- * @version 1.0
- */
-
 public class BookMyStayApp {
 
     public static void main(String[] args) {
@@ -16,5 +8,4 @@ public class BookMyStayApp {
         System.out.println("System initialized successfully.");
 
     }
-
 }
